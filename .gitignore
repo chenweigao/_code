@@ -1,2 +1,2 @@
 *.o
-cplus-exercise-code/*.o
+cplus-exercise-code/**/*.o
