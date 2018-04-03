@@ -2,11 +2,18 @@ class Solution:
     def hasAlternatingBits(slef, n):
         if not n:
             return False
-        bits = bin(n)
-        return all(bits[i] != bits[i+1] for i in range(len(bits)-1))
+        n, cur = divmod(n, 2)
+        # return n%2, n//2
+        while n:
+            if cur == n % 2:
+                return False
+            n, cur = divmod(n, 2)
+        return True
+
 
 def main():
     import sys
+
     def readlines():
         for line in sys.stdin:
             yield line.strip('\n')
@@ -16,13 +23,14 @@ def main():
     while True:
         try:
             line = next(lines)
-            n = int(line);
+            n = int(line)
 
             ret = Solution().hasAlternatingBits(n)
-            out = (ret);
+            out = (ret)
             print(out)
         except StopIteration:
             break
+
 
 if __name__ == '__main__':
     main()
