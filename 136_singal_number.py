@@ -13,4 +13,4 @@ for i in nums:
         hash_table.pop(i)
     except:
         hash_table[i] = 1
-print('solution two is: ',hash_table.popitem()[0])
+print('solution two is: ', hash_table.popitem()[0])
