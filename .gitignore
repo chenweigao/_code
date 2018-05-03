@@ -1,2 +1,3 @@
 *.o
 cplus-exercise-code/**/*.o
+/build
