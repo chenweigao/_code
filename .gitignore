@@ -1,3 +1,5 @@
 *.o
 cplus-exercise-code/**/*.o
 /build
+/.vscode
+/__pycache__
