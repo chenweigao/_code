@@ -18,6 +18,7 @@ def divide(a, b):
         raise ValueError('Invalid inputs') from e
 
 x, y = 5, 0
+
 try:
     result = divide(x, y)
 except ValueError as identifier:

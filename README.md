@@ -5,7 +5,7 @@ Accepted Code in LeetCode
 
 **LC** means code from LeetCode
 
-**newcpp** means new feature from c++ 11/14/17
+**newcpp** means new feature from c++ 11/14/17, in directory 'Test_C++'
 
 **EP** means code test from book *Effective Python*
 
