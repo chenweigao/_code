@@ -7,6 +7,8 @@ def f(step, g, j, n):
         f(step+1, 2*g, g, n)
 
     return min_step
+
+
 # g,j = 1,1
 # n = 10
-print(f(0,1,1,10))
+print(f(0, 1, 1, 10))
