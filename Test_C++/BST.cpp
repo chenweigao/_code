@@ -131,13 +131,14 @@ class BST {
 };
 
 int main() {
-    BST<int> *bst = new BST<int>();
-    bst->add(11);
-    bst->add(1);
-    bst->add(6);
-    bst->add(-1);
-    bst->add(-10);
-    bst->add(100);
+    BST<char> *bst = new BST<char>();
+    bst->add('e');
+    bst->add('c');
+    bst->add('g');
+    bst->add('b');
+    bst->add('d');
+    bst->add('a');
+    bst->add('b')
     bst->print();
     cout<<endl;
     cout<<"Nodes count: "<<bst->nodesCount();
@@ -147,28 +148,8 @@ int main() {
     cout<<"Max path: ";
     bst->printMaxPath();
     cout<<endl;
-    bst->deleteValue(11);
-    cout<<"11 removed: ";
-    bst->print();
-    cout<<endl;
-    cout<<"1 removed: ";
-    bst->deleteValue(1);
-    bst->print();
-    cout<<endl;
-    cout<<"-1 removed: ";
-    bst->deleteValue(-1);
-    bst->print();
-    cout<<endl;
-    cout<<"6 removed: ";
-    bst->deleteValue(6);
-    bst->print();
-    cout<<endl;
-    cout<<"-10 removed: ";
-    bst->deleteValue(-10);
-    bst->print();
-    cout<<endl;
-    cout<<"100 removed: ";
-    bst->deleteValue(100);
+    bst->deleteValue('a');
+    cout<<"a removed: ";
     bst->print();
     cout<<endl;
     return 0;
