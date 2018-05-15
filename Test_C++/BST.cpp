@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace;
+
+struct TreeNode
+{
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
