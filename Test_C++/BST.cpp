@@ -138,7 +138,7 @@ int main() {
     bst->add('b');
     bst->add('d');
     bst->add('a');
-    bst->add('b')
+    bst->add('b');
     bst->print();
     cout<<endl;
     cout<<"Nodes count: "<<bst->nodesCount();
