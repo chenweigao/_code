@@ -1,4 +1,5 @@
 *.o
+*.exe
 cplus-exercise-code/**/*.o
 /build
 /.vscode

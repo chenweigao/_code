@@ -23,5 +23,6 @@ int main()
     vector<int> nums = {0, 0, 1, 1, 2, 3, 4, 4};
     int ret = Solutiion().removeDuplicates(nums);
     cout << ret << endl;
+    system("pause");
     return 0;
 }
