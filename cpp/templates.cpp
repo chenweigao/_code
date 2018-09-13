@@ -8,6 +8,11 @@ T GetMax (T a, T b) {
 	return result;
 }
 
+template <class T, class U>
+T GetMin (T a, U b) {
+	return (a<b? a:b);
+}
+
 int main() {
 	int i=5, j=6, k;
 	long l=10, m=5, n;
@@ -15,6 +20,9 @@ int main() {
 	n = GetMax<long>(l, m);
 	cout << k << endl;
 	cout << n << endl;
+	int ii;
+	ii = GetMin(j, m);
+	cout << ii << endl;
 	return 0;
-	// 6 10
+	// 6 10 5
 }
