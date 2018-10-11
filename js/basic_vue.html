@@ -8,6 +8,7 @@
 </head>
 
 <body>
+   
     <div id="app-6">
         <p>
             {{ message }}
@@ -30,9 +31,46 @@
             to see my dynamically bound title!
         </span>
     </div>
-    
+    <div id="example">
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    </div>
+    <div id="demo">{{ fullName }}</div>
     <script>
-       
+        var vm1 = new Vue({
+            el: '#demo',
+            data: {
+                firstName: 'Foo',
+                lastName: 'Bar'
+            },
+            computed: {
+                fullName: {
+                    get: function () {
+                        return this.firstName + ' ' + this.lastName
+                    },
+                    set: function (newValue) {
+                        var names = newValue.split(' ')
+                        this.firstName = names[0]
+                        this.lastName = names[name.length - 1]
+                    }
+                }
+            }
+        })
+    </script>
+    <script>
+        var vm = new Vue({
+            el: '#example',
+            data: {
+                message: 'Hello'
+            },
+            computed: {
+                reversedMessage: function () {
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+    <script>
         var app6 = new Vue({
             el: "#app-6",
             data: {

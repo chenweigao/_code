@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue test</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="selected">
+        <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected }} </span>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#selected',
+            data: {
+                selected: 'BAS',
+                options: [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+                ]
+            }
+        })
+    </script>
+
+    <div id="example-1">
+        <button v-on:click="counter += 1">Add 1</button>
+        <button v-on:click="counter -= 1">Decrease 1</button>
+        <p>{{ counter }}</p>
+    </div>
+    <script>
+        var example1 = new Vue({
+            el: '#example-1',
+            data: {
+                counter: 0
+            }
+        })
+    </script>
+    <div id="checkbox">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+    </div>
+
+    <script>
+        var checkbox1 = new Vue({
+            el: '#checkbox',
+            data: {
+                checked: true
+            }
+        })
+    </script>
+
+    <div id="example-2">
+        <button v-on:click="greet">Great</button>
+    </div>
+
+    <script>
+        var example2 = new Vue({
+            el: '#example-2',
+            data: {
+                name: 'Vue.js'
+            },
+            methods: {
+                greet: function (event) {
+                    // alert('Hello' + this.name + '!')
+                    if (event) {
+                        // alert(event.target.tagName)
+                    }
+                }
+
+            }
+        })
+        example2.greet()
+    </script>
+</body>
+
+</html>
