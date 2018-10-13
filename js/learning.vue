@@ -7,13 +7,20 @@
 
 <script>
 var app4 = new Vue({
-  el: '#app-4',
+  el: "#app-4",
   data: {
     todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+      { text: "Learn JavaScript" },
+      { text: "Learn Vue" },
+      { text: "Build something awesome" }
     ]
   }
-})
+});
 </script>
+
+<style scoped>
+p {
+  font-size: 2em;
+  text-align: center;
+}
+</style>
