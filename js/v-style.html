@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.min.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .thin {
+            font-weight: 200;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .active {
+            letter-spacing: 0.5em;
+            /* 中文 */
+        }
+    </style>
+</head>
+<!-- 通过属性绑定设置class类的样式 -->
+<body>
+    <div id="app">
+        <h1 class="thin italic">This is a H1, very very big!</h1>
+        <h1 :class="['thin', 'italic']">This is a H1, very very big!</h1>
+        <h1 :class="['thin', 'italic', flag?'active':'']">This is a H1, very very big!</h1>
+        <h1 :class="['thin', 'italic', {'active': false}]">This is a H1, very very big!</h1>
+        <h1 :class="{red: true, italic: false}">This is a H1, very very big!</h1>
+        <h1 :class="classObj">This is a H1, very very big!</h1>
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: true,
+                classObj: {
+                    red: true,
+                    italic: true
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

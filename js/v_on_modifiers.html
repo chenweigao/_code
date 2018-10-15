@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <style>
+        .inner {
+        height: 150px;
+        background-color: darkcyan;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="inner" @click="divHandler">
+            <input type="button" value="type it" @click.stop="btnHandler">
+            <!-- the click event's propagation will be stopped -->
+            <a href="http://www.baidu.com" @click.prevent="linkClick">Go for baidu</a>
+        </div>
+
+    </div>
+
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            divHandler(){
+                console.log('inner div')
+            },
+            btnHandler(){
+                console.log('btn')
+            },
+            linkClick(){
+                console.log('link click event!')
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>
