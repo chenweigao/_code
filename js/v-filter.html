@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ msg | msgFormat('crazy') }}</p>
+    </div>
+
+    <script>
+        //define a filter
+        Vue.filter('msgFormat', function(msg, arg){
+            //正则表达式
+            return msg.replace(/beautiful/g, arg)
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'This is a beautiful message!!!Then beautiful you will find a beautiful thing!'
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

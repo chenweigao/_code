@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+    <!-- <script src="http://localhost:8098"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Add
+            </div>
+            <div class="panel-body form-inline">
+                <label>
+                    Id:
+                    <input type="text" name="" id="" class="form-contorl" v-model="id">
+                </label>
+                <label for="">Name:
+                    <input type="text" name="" id="" class="form-contorl" v-model="name" @keyup.enter="add">
+                </label>
+                <input type="button" value="add" class="btn btn-primary" @click="add">
+                <label for="">Search:
+                    <input type="text" name="" id="search" class="form-control" v-model="keywords" v-focus v-color="'blue'">
+                </label>
+            </div>
+        </div>
+
+        <table class="table table-{1:striped|sm|bordered|hover|inverse} table-inverse table-responsive">
+            <thead class="thead-inverse|thead-default">
+                <tr>
+                    <th>ID </th>
+                    <th>NAME</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in search(keywords)" :key="item.id">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.ctime | dateFormat('')}}</td>
+                    <td>
+                        <!-- <a href="" @click.prevent="del(item.id)">Delete</a> -->
+                        <input type="button" value="Delete" class="btn btn-primary" @click.prevent="del(item.id)">
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="app2">
+        <h5>{{ dt | dateFormat }}</h5>
+    </div>
+    <script>
+        Vue.filter('dateFormat', function (dateStr, pattern = "") {
+            var dt = new Date(dateStr)
+            var y = dt.getFullYear()
+            var m = (dt.getMonth() + 1).toString().padStart(2, '0')
+            //填充为2位，以0填充
+            var d = dt.getDay().toString().padStart(2, '0')
+
+            if (pattern.toLowerCase() == 'yyyy-mm-dd') {
+                return `${y}-${m}-${d}`
+            } else {
+                var hh = dt.getHours().toString().padStart(2, '0')
+                var mm = dt.getMinutes().toString().padStart(2, '0')
+                var ss = dt.getSeconds().toString().padStart(2, '0')
+                return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+            }
+        })
+
+        // global directive v-focus
+        Vue.directive('focus', {
+            bind: function (el) {
+
+            },
+            inserted: function (el) {
+                el.focus()
+            },
+            updated: function () {
+
+            }
+        })
+        Vue.directive('color', {
+            bind: function (el, binding) {
+                // el.style.color = 'blue'
+                el.style.color = binding.value
+            }
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                name: '',
+                ctime: '',
+                keywords: '',
+                list: [{
+                        id: 1,
+                        name: 'bench',
+                        ctime: new Date()
+                    },
+                    {
+                        id: 2,
+                        name: 'baoma',
+                        ctime: new Date()
+                    },
+
+                ]
+            },
+            methods: {
+                add() {
+
+                    var car = {
+                        id: this.id,
+                        name: this.name,
+                        ctime: new Date()
+                    }
+                    this.list.push(car)
+                    this.id = this.name = ''
+                },
+
+                del(id) {
+                    // this.list.some((item, i) => {
+                    //     if (item.id == id) {
+                    //         this.list.splice(i, 1)
+                    //         return true;
+                    //     }
+                    // })
+                    var index = this.list.findIndex(item => {
+                        if (item.id == id) {
+                            return true;
+                        }
+                    })
+                    return this.list.splice(index, 1)
+
+                },
+
+                search(keywords) {
+                    // newList = []
+                    // this.list.forEach(item => {
+                    //     if (item.name.indexOf(keywords) != -1) {
+                    //         newList.push(item)
+                    //     }
+                    // })
+                    // return newList
+                    return this.list.filter(item => {
+                        // ES6 new method
+                        if (item.name.includes(keywords)) {
+                            return item
+                        }
+                    })
+                }
+            }
+        })
+
+        var vm2 = new Vue({
+            el: '#app2',
+            data: {
+                dt: new Date()
+            },
+            methods: {},
+            filters: {
+                dateFormat: function (dateStr, pattern = " ") {
+                    var dt = new Date(dateStr)
+                    var y = dt.getFullYear()
+                    var m = dt.getMonth() + 1
+                    var d = dt.getDay()
+
+                    if (pattern.toLowerCase() == 'yyyy-mm-dd') {
+                        return `${y}-${m}-${d}`
+                    } else {
+                        var hh = dt.getHours()
+                        var mm = dt.getMinutes()
+                        var ss = dt.getSeconds()
+                        return `${y}-${m}-${d} ${hh}:${mm}:${ss} + `
+                    }
+                }
+            }
+        })
+        // foreach some filter findIndex
+    </script>
+</body>
+
+</html>
