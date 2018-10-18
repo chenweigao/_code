@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <!-- after it 在后面导入 因为有依赖关系 this.$http.jsonp -->
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="Get request" @click="getInfo">
+        <input type="button" value="Post request" @click="postInfo">
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                getInfo() { // get request
+                    this.$http.get('https://jsonplaceholder.typicode.com/users').then(function (result) {
+                        // console.log(result.body)
+                    })
+                },
+                postInfo() {
+                    this.$http.post('https://jsonplaceholder.typicode.com/users', {}, {}).then(result=> {
+                        console.log(result)
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

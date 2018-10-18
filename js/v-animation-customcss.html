@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="toggle" @click="flag=!flag">
+        <!-- <transition enter-active-class="bounceIn" leave-active-class="bounceOut" :duration="200">
+            <h3 v-show='flag' class="animated">This is H3</h3>
+        </transition> -->
+        <transition enter-active-class="bounceIn" leave-active-class="bounceOut" :duration="{enter:200, leave:400}">
+            <h3 v-show='flag' class="animated">This is H3</h3>
+        </transition>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false
+            }
+        })
+    </script>
+</body>
+
+</html>
