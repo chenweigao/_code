@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <style>
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(150px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <a href="" @click.prevent="comName='login'">Login</a>
+        <a href="" @click.prevent="comName='register'">Register</a>
+        <transition mode="out-in">
+            <component :is="comName"></component>
+        </transition>
+    </div>
+
+    <script>
+        Vue.component('login', {
+            template: '<h3>Login Component</h3>',
+        })
+        Vue.component('register', {
+            template: '<h3>Register Component</h3>'
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                comName: 'login'
+            }
+        })
+    </script>
+</body>
+
+</html>

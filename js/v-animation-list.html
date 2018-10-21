@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <style>
+        li {
+            border: 1px dashed #999;
+            margin: 5px;
+            line-height: 35px;
+            padding-left: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <div>
+                <label for="">Id:
+                    <input type="text" v-model="id">
+                </label>
+                <label for="">name:
+                    <input type="text" v-model="name">
+                </label>
+                <input type="button" value="Add" @click="add">
+            </div>
+            <li v-for="item in list" :key="item.id">
+                {{ item.id }} -- {{ item.name }}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                name: '',
+                list: [{
+                        "id": 1,
+                        "name": "Kenneth Harris",
+                        "ctime": "1994-01-24 07:12:48"
+                    },
+                    {
+                        "id": 2,
+                        "name": "James Johnson",
+                        "ctime": "2007-12-17 17:30:17"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Melissa Miller",
+                        "ctime": "1978-02-23 08:04:32"
+                    }
+                ]
+            },
+            methods: {
+                add() {
+                    this.list.push({
+                        id: this.id,
+                        name: this.name
+                    })
+                    this.id = this.name = ''
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

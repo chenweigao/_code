@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <style>
+        .my-enter,
+        .my-leave-to {
+            opacity: 0;
+            transform: translateY(50px)
+        }
+
+        .my-enter-active,
+        .my-leave-active {
+            transition: all 0.6s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <mycom1></mycom1>
+    </div>
+    <template id="tmp1">
+        <div>
+            <h1>This is a component -- {{ msg }}</h1>
+        </div>
+    </template>
+    <script>
+        Vue.component('mycom1', {
+            template: '#tmp1',
+            data: function(){
+                return {
+                    msg: 'This ia component data'
+                }
+            }
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {}
+        })
+    </script>
+</body>
+
+</html>
