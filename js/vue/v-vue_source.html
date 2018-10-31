@@ -15,16 +15,24 @@
     <div id="app">
         <input type="button" value="Get request" @click="getInfo">
         <input type="button" value="Post request" @click="postInfo">
+        <div v-for="path in pathlist">
+            <p v-for="node in path">
+                {{ node.time }}
+            </p>
+        </div>
     </div>
 
     <script>
         var vm = new Vue({
             el: '#app',
-            data: {},
+            data: {
+                pathlist:[[]]
+            },
             methods: {
                 getInfo() { // get request
-                    this.$http.get('http://127.0.0.1/path.json').then(function (result) {
-                        // console.log(result.body)
+                    var self=this;
+                    this.$http.get('http://127.0.0.1:9527/path.json').then(function (result) {
+                        self.pathlist = result.body;
                     })
                 },
                 postInfo() {
@@ -35,6 +43,8 @@
             }
         })
     </script>
+
+    <!-- <script src="http://127.0.0.1:5000/path.json"></script> -->
 </body>
 
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <com1 :parentmsg="msg"></com1>
+        <com2 @func="show"></com2>
+        <!-- 绑定事件 v-on @ 定义事件属性-->
+    </div>
+    <template id="tmp1">
+        <div>
+            <h1>This is a sub component that very useful</h1>
+            <input type="button" value="触发父组件传过来的fun" @click="myclick">
+        </div>
+    </template>
+    <script>
+        var com2 = {
+            template: '#tmp1',
+            data() {
+                return {
+                    sonmsg: {name: 'aaa', age: 12}
+                }
+            },
+            methods: {
+                myclick() {
+                    this.$emit('func', this.sonmsg, 4567)
+                }
+            }
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'data 123',
+                dataMsgFromSon: null
+            },
+            components: {
+                com1: {
+                    data() {
+                        return {
+                            title: '123'
+                        }
+                    },
+                    template: '<h1>This is sub component --- {{ parentmsg }} </h1>',
+                    props: ['parentmsg']
+                    // props read only
+                },
+                com2: com2
+            },
+            methods: {
+                show(data, data2) {
+                    // console.log('show() used! ' + data + data2)
+                    console.log(data)
+                    this.dataMsgFromSon = data
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <cmt-box></cmt-box>
+
+        <ul class="list-group">
+            <li class="list-group-item" v-for="item in list" :key="item.id">
+                <span class="badge">Person: {{ item.user }}</span>
+                {{ item.content }}
+            </li>
+        </ul>
+    </div>
+    <template id='tmp1'>
+        <div>
+            <div class="form-group">
+                <label for="">Person:</label>
+                <input type="text" class="form-control" v-model="user">
+            </div>
+            <div class="form-group">
+                <label for="">Content:</label>
+                <textarea class="form-control" v-model="content"></textarea>
+            </div>
+            <input type="button" value="Comment" class="btn btn-primary" @click="postComment">
+        </div>
+    </template>
+    <script>
+        var commentBox = {
+            data() {
+                return {
+                    user: '',
+                    content: ''
+                }
+            },
+            methods: {
+                postComment(){
+                    //localStorage: JSON.stringfy
+                }
+            },
+            template: '#tmp1'
+        }
+
+        var vm = new Vue({
+            el: '#app',
+            components: {
+                'cmt-box': commentBox
+            },
+            data: {
+                list: [{
+                        id: Date.now(),
+                        user: 'aaa',
+                        content: 'aaaaaaaaaaaaaaaaaaaaaaaaa'
+                    },
+                    {
+                        id: Date.now(),
+                        user: 'bbb',
+                        content: 'bbbbbbbbbbbbbbbbbbbbbbbbb'
+                    },
+                    {
+                        id: Date.now(),
+                        user: 'ccc',
+                        content: 'ccccccccccccccccccccccccc'
+                    },
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>
