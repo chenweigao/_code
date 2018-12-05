@@ -22,7 +22,7 @@ def lcm(*args):
 
     def _lcm(x, y):
         return x * y / _gcd(x, y)
-
+    # lcm(x,y) = x * y / gcd(x,y)
     return reduce((lambda x, y : _lcm(x, y)), numbers)
 
 print(lcm([1, 3, 4], 5))
