@@ -14,6 +14,8 @@ int main(){
 	cout << "size of char: " << sizeof(char) << endl;
 	cout << "size of name: " << sizeof(a.name) <<endl;
 	//40 4 4 1
+	int arr[32];
+	cout << "sizeof array arr:" << sizeof(arr)/sizeof(int) << endl;
 	return 0;
 }
 
