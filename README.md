@@ -1,12 +1,3 @@
-# LeetCode
-Accepted Code in LeetCode
+# Readme
 
-# What is file name means?
-
-**LC** means code from LeetCode
-
-**newcpp** means new feature from c++ 11/14/17, in directory 'Test_C++'
-
-**EP** means code test from book *Effective Python*
-
-**UVa** means code form ACM
+无聊时写的代码，都存在这里了...
