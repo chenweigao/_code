@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ int binarySearch()
     int mid, res = -1;
     while (l <= r)
     {
-        mid = l + (l + r) / 2;
+        mid = l + (r - l) / 2;
         if (get_sum(mid) == numbers) return mid;
         if(get_sum(mid) > numbers){
             r = mid - 1;
@@ -38,6 +39,13 @@ int binarySearch()
 int main()
 {
     cin >> days >> numbers;
+
+    vector<int> target_list;
+
+    for(int i = 0; i < numbers; i++) {
+        target_list.push_back(get_sum(i));
+    }
+
     int result = binarySearch();
     cout << result << endl;
     return 0;
