@@ -1,5 +1,6 @@
 from functools import wraps
 
+
 def logit(func):
     @wraps(func)
     def with_logging(*args, **kwargs):
@@ -7,12 +8,15 @@ def logit(func):
         return func(*args, **kwargs)
     return with_logging
 
+
 @logit
 def addition_func(x):
     return x + x
 
+
 result = addition_func(4)
 print(result)
+
 
 def logit2(logfile='out.log'):
     def logging_decorator(func):
@@ -33,9 +37,13 @@ def logit2(logfile='out.log'):
 def myfunc1():
     pass
 
+
 myfunc1()
+
 
 @logit2(logfile='func2.log')
 def myfunc2():
     pass
+
+
 myfunc2()
