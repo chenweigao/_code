@@ -16,7 +16,7 @@ def heapify(arr: list, index: int, heap_size: int):
 def heap_sort(arr):
 
     n = len(arr)
-    for i in range(n // 2 - 1, -1, -1):
+    for i in range(n // 2 - 1, -1, -1): # -1 because of [)
         heapify(arr, i, n)
     for end in range(n - 1, 0, -1):
         arr[0], arr[end] = arr[end], arr[0]
