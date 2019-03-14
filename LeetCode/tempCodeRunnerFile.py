@@ -1,2 +1,2 @@
-str_in = input()
-# days, number = [int(_) for _ in str_in.split()]
+
+            max_ending_here = max_ending_here + nums[i]
