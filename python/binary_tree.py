@@ -7,6 +7,18 @@ class BinaryTree:
     def set_data(self, data):
         self.data = data
 
+    def getHeight(self, node):
+        if node is None:
+            return 0
+        else:
+            lheight = self.getHeight(node.left)
+            rheight = self.getHeight(node.right)
+
+            if lheight > rheight:
+                return lheight + 1
+            else:
+                return rheight + 1
+
     def get_data(self):
         return self.data
 
@@ -39,7 +51,6 @@ class BinaryTree:
             self.right = temp
 
 
-
 def preorderRecursive(root):
     '''
     先序遍历递归法
@@ -51,11 +62,10 @@ def preorderRecursive(root):
         result.append(root.data)
         helper(root.left, result)
         helper(root.right, result)
-    
-    result = []    
+
+    result = []
     helper(root, result)
     return result
-
 
 
 def levelOrder(root):
@@ -83,12 +93,50 @@ def levelOrder(root):
     return result
 
 
+'''
+递归方式层次遍历二叉树
+'''
+
+
+def printLevelOrder(root):
+    h = height(root)
+    for i in range(1, h + 1):
+        printGivenLevel(root, i)
+
+
+def printGivenLevel(root, level):
+    if root is None:
+        return
+    if level == 1:
+        print(root.data)
+    elif level > 1:
+        printGivenLevel(root.left, level - 1)
+        printGivenLevel(root.right, level - 1)
+
+
+def height(node):
+    if node is None:
+        return 0
+    else:
+        lheight = height(node.left)
+        rheight = height(node.right)
+
+        if lheight > rheight:
+            return lheight + 1
+        else:
+            return rheight + 1
+
+
 root = BinaryTree(11)
 
 root.insertLeft(1)
 root.insertRight(2)
 root.insertLeft(3)
 
+print('height is: %d' % root.getHeight(root))
+
 print(levelOrder(root))
 
 print(preorderRecursive(root))
+
+printLevelOrder(root)
