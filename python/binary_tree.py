@@ -19,6 +19,11 @@ class BinaryTree:
             else:
                 return rheight + 1
 
+    def getHeight2(self, node):
+        if node is None:
+            return 0
+        return max(self.getHeight2(node.left), self.getHeight2(node.right)) + 1
+    
     def get_data(self):
         return self.data
 
@@ -133,7 +138,7 @@ root.insertLeft(1)
 root.insertRight(2)
 root.insertLeft(3)
 
-print('height is: %d' % root.getHeight(root))
+print('height is: %d' % root.getHeight2(root))
 
 print(levelOrder(root))
 
