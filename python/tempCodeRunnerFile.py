@@ -1,2 +1,2 @@
 
-            r += 1
+    start_new_thread(clientthread, (conn, addr))
