@@ -1,13 +1,23 @@
-def longestPalindrome(s):
-    dp = [[0 for _ in range(len(s))] for _ in range(len(s))]
-    res = ''
-    for i in range(len(s)):
-        for j in range(len(s) - 1, -1, -1):
-            dp[i][j] = s[i] == s[j] and (i - j <= 2 or dp(i + 1, j - 1))
-            if dp[i][j] and (res == '' or j - i + 1 > len(res)):
-                res = s[i:j+1]
+class Solution:
+    def longestPalindrome(self, s):
+        res = ''
+        for i in range(len(s)):
+            # tmp = self.helper(s, i, i)
+            # if len(tmp) > len(res):
+            #     res = tmp
+            # tmp = self.helper(s, i, i + 1)
+            # if len(tmp) > len(res):
+            #     res = tmp
+            res = max(self.helper(s, i, i), self.helper(
+                s, i, i + 1), res, key=len)
 
-    return res
+        return res
+
+    def helper(self, s, l, r):
+        while l >= 0 and r < len(s) and s[l] == s[r]:
+            l -= 1
+            r += 1
+        return s[l + 1:r]
 
 
-print(longestPalindrome('babadaaaaa'))
+print(Solution().longestPalindrome('cbbd'))
