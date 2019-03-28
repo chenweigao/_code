@@ -11,16 +11,18 @@ null -> 3 -> 2 -> 1
 #         self.next = None
 
 
-class Solution:
+class Solution(object):
     def reverseList(self, head):
-        # try an iterive solution
-        preNode = None
-        curNode = head
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        pre = None # 这个 None 不好理解的话拿一个中间节点看
+        cur = head
 
-        while curNode.next is not None:
-            next = curNode.next
-            curNode.next = preNode
-            preNode = curNode
-            curNode = next
-
-        return preNode
+        while cur is not None:
+            next = cur.next  # 存储 cur 的下一个节点，避免下次找不到
+            cur.next = pre  # 指向前面的节点
+            pre = cur  # 向后遍历
+            cur = next  # 向后遍历
+        return pre
