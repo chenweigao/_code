@@ -89,23 +89,18 @@ class MyLinkedList:
 
 
         def removeNthFromEnd(self, head, n):
-        """
-        :type head: ListNode
-        :type n: int
-        :rtype: ListNode
-        """
-            slow = fast = head
+            slow = fast = self.head
             for i in range(n):
                 fast = fast.next
                 
             if not fast:
-                return head.next
+                return self.head.next
             
             while fast.next is not None:
                 fast = fast.next
                 slow = slow.next
             slow.next = slow.next.next
-            return head
+            return self.head
 # Your MyLinkedList object will be instantiated and called as such:
 obj = MyLinkedList()
 obj.addAtHead(1)
