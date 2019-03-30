@@ -22,9 +22,10 @@ def my_merge(left, right):
         else:
             result.append(right[r])
             r += 1
-        result += left[l:]
-        result += right[r:]
-        return result
+        
+    result += left[l:]
+    result += right[r:]
+    return result
 
 
 seq = [1, 3, 6, 2, 4]
