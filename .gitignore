@@ -3,6 +3,7 @@
 cplus-exercise-code/**/*.o
 /build
 /.vscode
+cpp/.vscode
 /__pycache_
 *.out
 cpp/a.out_
