@@ -26,3 +26,11 @@ class Solution(object):
             pre = cur  # 向后遍历
             cur = next  # 向后遍历
         return pre
+
+    def reverseList2(self, head):
+        if head is None or head.next is None:
+            return head
+        p = self.reverseList2(head.next)
+        head.next.next = head # head 的 next 节点指向 head
+        head.next = None
+        return p
