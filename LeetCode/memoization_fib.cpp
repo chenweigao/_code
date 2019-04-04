@@ -3,9 +3,9 @@
 
 using namespace std;
 
+unordered_map<int, int> cache;
 int fib(int N)
 {
-    unordered_map<int, int> cache;
     int result;
     if (cache.find(N) != cache.end())
     {
@@ -25,7 +25,7 @@ int fib(int N)
 
 int main()
 {
-    int n = 20;
+    int n = 60;
     cout << fib(n) << endl;
     return 0;
 }
