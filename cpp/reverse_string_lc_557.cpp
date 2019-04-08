@@ -7,7 +7,6 @@ using namespace std;
 string reverseWords(string s)
 {
     int start = 0;
-    // s.append(" ");
     for (int cur = 0; cur <= s.size(); cur++)
     {
         if (s[cur] == ' ' || cur == s.size())

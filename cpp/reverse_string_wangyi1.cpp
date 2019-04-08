@@ -22,7 +22,7 @@ string reverseWords(string s)
         }
     }
     if (cleanString.size() > 0)
-    {
+    { 
         int lastIdx = cleanString.size() - 1;
         if (cleanString[lastIdx] == ' ')
         {
