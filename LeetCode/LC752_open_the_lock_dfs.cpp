@@ -10,7 +10,7 @@ using namespace std;
 int openLock(vector<string> &deadends, string target)
 {
     // visited is a set including strings in deadends
-    unordered_set<string> visited(deadends.begin(), deadends.end());
+    unordered_set<string> visited(deadends.begin(), deadends.end()); 
 
     if (visited.find("0000") != visited.end() || visited.find(target) != visited.end())
         return -1;
