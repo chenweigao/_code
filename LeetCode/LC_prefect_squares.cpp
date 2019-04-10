@@ -2,10 +2,11 @@
 #include <vector>
 #include <limits.h>
 #include <algorithm>
+#include <queue>
 
 using namespace std;
 
-int numSequares(int n)
+int numSquares(int n)
 {
     if (n <= 0)
     {
@@ -26,10 +27,12 @@ int numSequares(int n)
     return dp[n];
 }
 
+
+
 int main()
 {
     int n = 12;
-    int res = numSequares(12);
+    int res = numSquares(12);
     cout << res << endl;
     return 0;
 }
