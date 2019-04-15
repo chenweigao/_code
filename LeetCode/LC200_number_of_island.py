@@ -1,3 +1,4 @@
+# using dfs to calculate number of island
 class Solution:
 
     def dfs(self, grid, i, j):
