@@ -31,6 +31,7 @@ class SolutionMemoization:
         cache = {}
         return findTarget(0, S)
 
+
 class SolutionDP:
     '''
     This ways use the P(sum of positive nums) and N(sum of negative nums)
@@ -41,13 +42,25 @@ class SolutionDP:
 
     so, the conclution is:
     find a subset P of nums such that sum(P) = (target + sum(nums)) / 2, where target + sum(nums) must be even.
-    '''    
-    def findTargetSumWays(self, nums, S):
+    '''
+
+    def findTargetSumWays(self, nums, s):
         total = sum(nums)
-        if total < S or (S + total) & 1:
+
+        if total < s or (s + total) % 2 != 0:
             return 0
         
-        sub_sum = (total + S) // 2
+        sub_sum = (total + s) // 2
+
+        dp = [0 for _ in range(sub_sum + 1)]
+        dp[0] = 1
+
+        acc = 0
+        for n in nums:
+            acc += n
+            for i in range(min(acc, sub_sum), n - 1, -1):
+                dp[i] += dp[i - n]
+        return dp[-1]
 
 
 
