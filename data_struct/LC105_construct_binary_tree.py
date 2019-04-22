@@ -16,7 +16,7 @@ inorder = [9, 3, 15, 20, 7]  left root right
 what is the tree should be?
 '''
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+    def buildTree(self, preorder: 'List[int]', inorder: 'List[int]') -> TreeNode:
         if not preorder or not inorder:
             return None
         

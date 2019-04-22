@@ -17,7 +17,7 @@ return the tree
 
 
 class Solution:
-    def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+    def buildTree(self, inorder: 'List[int]', postorder: 'List[int]') -> TreeNode:
         if not inorder or not postorder:
             return None
 
