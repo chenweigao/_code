@@ -26,16 +26,25 @@ class Solution
         if (j == needle.size())
             return i - j;
         else
-        {
             return -1;
-        }
+       
+    }
+};
+
+
+class SolutionKMP
+{
+    public:
+    int strStr(string str1, string str2)
+    {
+
     }
 };
 
 int main()
 {
     string str1 = "helloo";
-    string str2 = "ll";
+    string str2 = "ll22331131";
     int res = Solution().strStr(str1, str2);
     cout << res << endl;
     return 0;
