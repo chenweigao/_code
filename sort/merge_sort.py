@@ -28,5 +28,5 @@ def my_merge(left, right):
     return result
 
 
-seq = [1, 3, 6, 2, 4]
+seq = [1, 3, 6, 2, 4, 0, -1, 3]
 print(merge_sort(seq))
