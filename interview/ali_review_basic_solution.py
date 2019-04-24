@@ -28,7 +28,7 @@ for data in datas:
     points = list(points)
     res = abs(end - start)
 
-    for i in range(len(points)):
-        for s in shortcut_list:
-            res = min(res, abs(s[0] - start) + abs(s[1] - end) + s[2])
+
+    for s in shortcut_list:
+        res = min(res, abs(s[0] - start) + abs(s[1] - end) + s[2])
     print(res)

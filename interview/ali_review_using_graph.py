@@ -106,7 +106,7 @@ def dijkstra(graph, src, goal):
 #     print(distance)
 
 
-points, graph, bi, ei = BuildGraph([(0, 10, 1), (13, 8, 2)], 1, 12)
+points, graph, bi, ei = BuildGraph([(0, 10, 1), (13, 8, 2)], 20, 7)
 
 distance = dijkstra(graph, bi, ei)
 print(distance)
