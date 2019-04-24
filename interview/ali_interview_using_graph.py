@@ -19,7 +19,6 @@ def BuildGraph(shortcut_list, begin, end):
     graph = []
     size = len(points)
 
-    # for i in range(size):
     for i in range(size):
         graph.append([0] * size)
         for j in range(size):

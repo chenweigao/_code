@@ -16,7 +16,6 @@ def binarySearch(alist, value):
         return -1
 
 
-
 def binarySearch2(arr, l, r, x):
     if r >= l:
         mid = (r + l) // 2
@@ -28,4 +27,10 @@ def binarySearch2(arr, l, r, x):
     else:
         return -1
 
-print(binarySearch2([1,2,3,4,5,6], 0, 5, 3))
+
+print(binarySearch2([1, 2, 3, 4, 5, 6], 0, 5, 3))
+
+
+alist = [-3, -5, 9, 10, 13]
+value = 11
+print(rIndex(alist, value))
