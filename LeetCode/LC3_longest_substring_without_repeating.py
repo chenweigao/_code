@@ -15,5 +15,3 @@ class Solution:
                 hashset.remove(s[i])
                 i += 1
         return res                
-
-
