@@ -1,6 +1,6 @@
-# Readme
+# README
 
-There is a repository for my non-project code.
+There is a repository for my **non-project** code.
 
 - `ACM`: some codes for ACM in 2018
 
