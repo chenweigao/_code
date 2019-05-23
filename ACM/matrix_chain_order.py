@@ -23,14 +23,16 @@ def MatrixChainOrder(array):
                     Sol[a][b] = c
     return Matrix, Sol
 
+
 def PrintOptimalSolution(OptimalSolution, i, j):
     if i == j:
-        print('A' + str(i), end = ' ')
+        print('A' + str(i), end=' ')
     else:
-        print('(', end = ' ')
+        print('(', end=' ')
         PrintOptimalSolution(OptimalSolution, i, OptimalSolution[i][j])
         PrintOptimalSolution(OptimalSolution, OptimalSolution[i][j]+1, j)
-        print(')', end = ' ')
+        print(')', end=' ')
+
 
 def main():
     array = [30, 35, 15, 5, 10, 20, 25]
@@ -38,6 +40,7 @@ def main():
     Matrix, OptimalSolution = MatrixChainOrder(array)
     print("No. of Operation required: "+str((Matrix[1][n-1])))
     PrintOptimalSolution(OptimalSolution, 1, n-1)
+
 
 if __name__ == '__main__':
     main()
