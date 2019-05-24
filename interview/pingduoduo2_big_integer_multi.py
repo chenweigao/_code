@@ -1,6 +1,5 @@
 class Solution:
     def big_int_multi(self, str1, str2):
-        c = [0 for _ in range(max(len(str1), len(str2)))]
         res = [0 for _ in range(len(str1) + len(str2))]
         for i in range(len(str1) - 1, -1, -1):
             x = int(str1[i])
