@@ -1,3 +1,4 @@
+from builtins import input
 import sys
 import math
 str_in = input()
@@ -10,5 +11,6 @@ values = list(map(int, line.split()))
 #     else:
 #         return n * math.factorial(n-1)
 
-res = int(math.factorial(m) / (math.factorial(n) * math.factorial(m - n))) * (m - n) * 2
-print(int(res%(1e9+7)))
+res = int(math.factorial(m) / (math.factorial(n)
+                               * math.factorial(m - n))) * (m - n) * 2
+print(int(res % (1e9+7)))

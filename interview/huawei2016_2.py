@@ -1,5 +1,5 @@
 import collections
-
+from builtins import input
 dic = collections.OrderedDict()
 
 while True:
