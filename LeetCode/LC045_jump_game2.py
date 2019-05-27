@@ -15,3 +15,16 @@ class Solution:
 
 arr = [2, 3, 1, 1, 4]
 print(Solution().jump(arr))
+
+class Solution2:
+    def jump(self, nums):
+        count = 0
+        end = 0
+        farthest = 0
+
+        for i in range(len(nums) - 1):
+            farthest = max(farthest, i + nums[i])
+            if i == end:
+                count += 1
+                end = farthest
+        return count
