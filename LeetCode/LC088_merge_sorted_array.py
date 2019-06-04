@@ -14,7 +14,9 @@ class Solution:
             nums1[:n] = nums2[:n]
         return nums1
 
-nums1 = [-2, 3, 10, 0, 0, 0]
-nums2 = [-1 ,2, 5, 6]
+
+nums1 = [1, 2, 3, 0, 0, 0]
+nums2 = [2, 5, 6]
+
 
 print(Solution().merge(nums1, 3, nums2, 3))
