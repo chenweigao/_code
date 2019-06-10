@@ -8,3 +8,4 @@ cpp/.vscode
 *.out
 cpp/a.out_
 tempCodeRunnerFile.*
+data_struct/__pycache__/linkedlist.cpython-37.pyc
