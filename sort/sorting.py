@@ -4,8 +4,8 @@
 #### Quick sort 
 def partition(pivot, st, ed, a):
     '''
-Rearrange items in a , so that all items less then pivot are
-prior to pivot item, and all items great then pivot are 
+    Rearrange items in a , so that all items less then pivot are
+    prior to pivot item, and all items great then pivot are 
     '''
     l = st
     r = ed
@@ -21,7 +21,7 @@ prior to pivot item, and all items great then pivot are
 
 def quicksort(st, ed, a):
     '''
-The quick sort algorithm.
+    The quick sort algorithm.
     '''
     if st >= ed:
         return
@@ -38,8 +38,8 @@ The quick sort algorithm.
 ####  shell sorting
 def shellsort(st, ed, a):
     '''
-Shell sort.
-using sequence 1, 3, 7, 15, 31, ..., 
+    Shell sort.
+    using sequence 1, 3, 7, 15, 31, ..., 
     '''
     n = len(a)
     h = 1
