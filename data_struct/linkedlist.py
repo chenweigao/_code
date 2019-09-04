@@ -4,7 +4,7 @@ class Node:
         self.val = val
         self.next = None
 
-class MyLinkedList:
+class LinkedList:
 
     def __init__(self):
         """
@@ -102,12 +102,12 @@ class MyLinkedList:
             slow.next = slow.next.next
             return self.head
 # Your MyLinkedList object will be instantiated and called as such:
-obj = MyLinkedList()
-obj.addAtHead(1)
-# obj.addAtTail(2)
-obj.addAtIndex(1,2)
-param_1 = obj.get(1)
-param_2 = obj.get(0)
-param_3 = obj.get(2)
-# obj.deleteAtIndex(0)
-print(param_3)
+# obj = LinkedList()
+# obj.addAtHead(1)
+# # obj.addAtTail(2)
+# obj.addAtIndex(1,2)
+# param_1 = obj.get(1)
+# param_2 = obj.get(0)
+# param_3 = obj.get(2)
+# # obj.deleteAtIndex(0)
+# print(param_3)

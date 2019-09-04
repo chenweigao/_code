@@ -4,22 +4,13 @@ class Node(object):
 
 
 def swapLinkedList(head, m, n):
-    res = []
-    cur = head
-    while cur:
-        # print(cur.val)
-        res.append(cur.val)
-        cur = cur.next
-    res[m - 1], res[n - 1] = res[n - 1], res[m - 1]
-    # print(res)
-    ans = createLinkedList(res)
-    return ans
+   return None
 
 
 
 def printLinkedList(head):
     cur = head
-    while cur.next is not None:
+    while cur is not None:
         print(cur.val)
         cur = cur.next
 
@@ -34,11 +25,26 @@ def createLinkedList(nums):
         cur = cur.next
     return head
 
+def findPrevNode(head, num) -> 'Node':
+    cur = head
+    while cur and cur.next:
+        if cur.next.val == num:
+            return cur
+        cur = cur.next
+    return None
+
 nums = [11, 5, 8, 22, 9, 5]
 
-alinked_list = createLinkedList(nums)
-printLinkedList(alinked_list)
-# res = swapLinkedList(alinked_list, 3, 5)
-# print(swapLinkedList(alinked_list, 3, 5))
-# printLinkedList(swapLinkedList(alinked_list, 3, 5))
-# printLinkedList(res)
+# swap linkedlist at index 3 and 5
+
+alist = createLinkedList(nums)
+
+swapLinkedList(alist, 8, 9)
+# prev_a = findPrevNode(alist, 8)
+# prev_b = findPrevNode(alist, 9)
+
+# prev_a.next.val, prev_b.next.val = prev_b.next.val, prev_a.next.val
+
+printLinkedList(alist)
+
+# printLinkedList(alist)
